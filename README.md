@@ -1,39 +1,52 @@
 # Azure Databricks Training — Lab Notebooks
 
-## Setup
+## Quick Start
 
-1. Import this repo into your Databricks workspace (Repos → Add Repo → paste URL)
-2. Run the setup notebooks first:
-   - `setup/00_Lab_Environment_Setup` — Creates catalog, schemas, volumes
+1. **Import** this repo into your Databricks workspace:
+   - Go to **Repos → Add Repo**
+   - Paste: `https://github.com/sundaraselvaraj/axa-databricks-training`
+
+2. **Run setup notebooks** (in order):
+   - `setup/00_Lab_Environment_Setup` — Creates catalog `axa_training`, schemas, volume
    - `setup/01_Generate_Sample_Data` — Generates Day 1 lab data
-   - `setup/02_Generate_ADLS_Sample_Data` — Generates Day 2 lab data (requires ADLS config)
+
+3. **Start labs:**
+   - `jour1/01_Getting_Started_with_Databricks`
 
 ## Configuration
 
-Edit the config cell at the top of each notebook:
+The default catalog name is `axa_training`. Change it in the config cell if needed:
 
 ```python
 CATALOG_NAME = "axa_training"  # Change to your catalog name
 ```
 
-For Day 2 labs (ADLS Gen2), also set:
+## Day 2 Labs (Optional — requires ADLS Gen2)
+
+Day 2 labs require an Azure Data Lake Storage Gen2 account. Edit the config cell:
+
 ```python
 STORAGE_ACCOUNT = "your_storage_account"
 CONTAINER = "data"
 ```
 
+Run `setup/02_Generate_ADLS_Sample_Data` to generate Day 2 data.
+
 ## Labs
 
 ### Day 1
-- `jour1/01_Getting_Started_with_Databricks` — Workspace basics, magic commands
-- `jour1/02_PySpark_Transformation_Lab` — PySpark DataFrame API
-- `jour1/03_Delta_Lake_Lab` — ACID transactions, time travel, constraints
+| Lab | Topic |
+|-----|-------|
+| 01 | Getting Started with Databricks |
+| 02 | PySpark Transformations |
+| 03 | Delta Lake Operations |
 
-### Day 2
-- `jour2/04_Bronze_Layer` — Data ingestion + Auto Loader
-- `jour2/05_Silver_Layer` — Data quality + enrichment
-- `jour2/06_Gold_Layer` — Aggregations + optimization
-- `jour2/07_DLT_Pipeline` — Delta Live Tables
+### Day 2 (requires ADLS)
+| Lab | Topic |
+|-----|-------|
+| 04 | Bronze Layer (Ingestion + Auto Loader) |
+| 05 | Silver Layer (Data Quality + Enrichment) |
+| 06 | Gold Layer (Aggregations + Optimization) |
+| 07 | DLT Pipeline |
 
-### Solutions
-Complete solutions are in `solutions/`.
+Solutions are in `solutions/`.
